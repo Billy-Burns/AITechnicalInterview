@@ -20,9 +20,6 @@ function App() {
         <ResumeForm onQuestionsUpdate={handleQuestionsUpdate} />
         <QuestionsDisplay questions={questions} />
       </main>
-      <footer>
-        <p>Powered by AI | © 2023</p>
-      </footer>
     </div>
   );
 }
