@@ -9,40 +9,24 @@ function ResumeForm({ onQuestionsUpdate }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!resumeText.trim() || !jobDescription.trim()) {
-      alert("Both fields are required!");
-      return;
-    }
+    setLoading(true); // Start loading
 
     try {
       const payload = {
         resume_text: resumeText,
         job_description: jobDescription,
       };
-      console.log("Payload being sent to backend:", payload);
 
+      // Send data to the backend
       const response = await axios.post("http://127.0.0.1:5000/api/interview", payload);
 
-      // Debug: Log the full response from the backend
-      console.log("Full response from backend:", response);
-
-      if (response.status === 402) {
-        alert("Insufficient balance in the DeepSeek account. Please contact the administrator.");
-        return;
-      }
-
-      if (response.data.questions) {
-        onQuestionsUpdate(response.data.questions);
-      } else {
-        alert("No questions were generated. Please try again.");
-      }
+      // Update the questions in the parent component
+      onQuestionsUpdate(response.data.questions || []);
     } catch (error) {
       console.error("Error generating questions:", error);
       alert("An error occurred while generating questions. Please try again later.");
-      onQuestionsUpdate([]);
     } finally {
-      setLoading(false); // Reset the loading state
+      setLoading(false); // Stop loading
     }
   };
 
@@ -71,8 +55,14 @@ function ResumeForm({ onQuestionsUpdate }) {
         />
       </div>
       <button type="submit" className="submit-button" disabled={loading}>
-        {loading ? "Generating..." : "Generate Questions"}
+        {loading ? "Generating Questions..." : "Generate Questions"}
       </button>
+      {loading && (
+        <div className="loading-spinner-container">
+          <div className="loading-spinner"></div>
+          <p>Generating interview questions. This may take a minute...</p>
+        </div>
+      )}
     </form>
   );
 }
