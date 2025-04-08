@@ -12,13 +12,25 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>AI Interview Question Generator</h1>
-        <p>Paste your resume and job description below to generate interview questions.</p>
-      </header>
+      {/* Navigation Bar */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            <i className="fas fa-robot me-2"></i>AI Hiring Manager
+          </a>
+        </div>
+      </nav>
+
       <main>
+        {/* Resume Form */}
         <ResumeForm onQuestionsUpdate={handleQuestionsUpdate} />
-        <QuestionsDisplay questions={questions} />
+
+        {/* Questions Display */}
+        {questions.length > 0 && (
+          <div className="container mt-5">
+            <QuestionsDisplay questions={questions} />
+          </div>
+        )}
       </main>
     </div>
   );

@@ -53,3 +53,72 @@ footer {
   font-size: 0.9em;
   color: #666;
 }
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 60px 0;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+
+/* Navbar Customization */
+.navbar {
+  background-color: #003366; /* Darker blue to contrast with the hero section */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better separation */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff; /* Ensure the text is readable */
+}
+
+.navbar-brand:hover {
+  color: #d1e7ff; /* Slight hover effect */
+}
+
+.navbar-brand i {
+  font-size: 1.25rem;
+  margin-right: 8px;
+  color: #ffffff;
+}
+
+/* Card Customization */
+.card {
+  border-radius: 10px;
+}
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+textarea.form-control {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+}
