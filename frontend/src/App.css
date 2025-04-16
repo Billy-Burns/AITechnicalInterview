@@ -49,58 +49,119 @@ main {
 }
 
 footer {
-  margin-top: 20px;
-  font-size: 0.9em;
-  color: #666;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   color: white;
-  padding: 60px 0;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 1;
+}
+
+.hero-section h1,
+.hero-section p {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-section p {
   font-size: 1.25rem;
   margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* Navbar Customization */
+/* Navbar */
 .navbar {
-  background-color: #003366; /* Darker blue to contrast with the hero section */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better separation */
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff; /* Ensure the text is readable */
+  color: #007bff;
 }
 
 .navbar-brand:hover {
-  color: #d1e7ff; /* Slight hover effect */
+  color: #0056b3;
 }
 
-.navbar-brand i {
-  font-size: 1.25rem;
-  margin-right: 8px;
-  color: #ffffff;
+.navbar-nav .nav-link {
+  color: #555;
+  font-weight: 500;
 }
 
-/* Card Customization */
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+/* Form Section */
 .card {
   border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
 .card-header {
-  font-size: 1.25rem;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.5rem;
   font-weight: bold;
+  text-align: center;
 }
 
 textarea.form-control {

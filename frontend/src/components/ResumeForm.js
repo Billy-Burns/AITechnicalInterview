@@ -30,7 +30,7 @@ function ResumeForm({ onQuestionsUpdate }) {
   return (
     <div>
       {/* Hero Section */}
-      <div className="hero-section text-center text-white py-5">
+      <div className="hero-section text-center text-white d-flex align-items-center">
         <div className="container">
           <h1 className="display-4 fw-bold">AI Interview Question Generator</h1>
           <p className="lead">
