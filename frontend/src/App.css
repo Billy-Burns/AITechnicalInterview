@@ -1,3 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-text-primary;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-dark-surface rounded-lg border border-dark-border p-6 shadow-lg;
+  }
+  
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .input {
+    @apply bg-dark-surface border border-dark-border rounded-lg px-4 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .rainbow-text {
+    @apply bg-clip-text text-transparent bg-rainbow-gradient animate-gradient-x;
+  }
+
+  .rainbow-text-static {
+    @apply bg-clip-text text-transparent bg-rainbow-gradient;
+  }
+}
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 15s ease infinite;
+}
+
 .App {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -182,4 +235,103 @@ textarea.form-control {
 .spinner-border {
   width: 2rem;
   height: 2rem;
+}
+
+/* Base styles */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --dark-bg: #111827;
+  --dark-surface: #1f2937;
+  --dark-border: #374151;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+}
+
+/* Professional gradient text */
+.rainbow-text {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Button styles */
+.btn {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Input styles */
+.input {
+  background-color: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Utility classes */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-dark {
+  background-color: var(--dark-bg);
+}
+
+.bg-dark-surface {
+  background-color: var(--dark-surface);
+}
+
+.border-dark {
+  border-color: var(--dark-border);
 }
